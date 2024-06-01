@@ -27,7 +27,7 @@
     input[type="email"],
     input[type="number"],
     textarea {
-        width: 100%;
+        width: calc(50% - 5px); /* Adjust for spacing */
         padding: 8px;
         margin-bottom: 10px;
         border: 1px solid #ccc;
@@ -48,13 +48,26 @@
     input[type="submit"]:hover {
         background-color: #45a049;
     }
+
+    /* Style for side-by-side inputs */
+    .input-group {
+        display: flex;
+        justify-content: space-between;
+    }
+    .input-group input {
+        width: 48%; /* Adjust for spacing */
+    }
 </style>
 </head>
 <body>
 
 <form id="importForm" enctype="multipart/form-data">
-    <label for="fullName">Full Name:</label>
-    <input type="text" id="fullName" name="fullName" required>
+    <div class="input-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+    </div>
 
     <label for="deliveryAddress">Delivery Address:</label>
     <textarea id="deliveryAddress" name="deliveryAddress" rows="4" required></textarea>
